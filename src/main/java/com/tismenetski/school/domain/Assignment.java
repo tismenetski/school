@@ -33,4 +33,7 @@ public class Assignment {
     @ManyToOne
     @JoinColumn(name="assignment_id")
     private Class assignmentClass;
+
+    @OneToOne
+    private Grade grade;
 }

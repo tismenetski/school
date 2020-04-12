@@ -33,4 +33,7 @@ public class Test {
     private String name;
     private Double weight;
 
+    @OneToOne
+    private Grade grade;
+
 }

@@ -34,4 +34,7 @@ public class Subject {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "subject",fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Test> subjectTests;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "subject",fetch = FetchType.LAZY)
+    private List<Assignment> subjectAssignments;
 }

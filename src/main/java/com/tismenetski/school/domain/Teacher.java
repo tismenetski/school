@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -22,6 +23,13 @@ public class Teacher {
 
     @NotBlank
     private String name;
+
+    @NotBlank
+    @Range(min=9,max = 9)
+    private String socialId;
+
+    @NotBlank
+    private String phoneNumber;
 
     @ManyToMany
     @JoinTable(name="teachers_subjects",joinColumns = @JoinColumn(name="teacher_id"),inverseJoinColumns = @JoinColumn(name = "subject_id"))

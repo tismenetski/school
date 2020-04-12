@@ -9,6 +9,8 @@ import org.hibernate.validator.constraints.Range;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
@@ -22,18 +24,28 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank()
     private String name;
+
+    @NotBlank
+    @Size(min=9,max = 9)
+    @Column(unique = true, updatable = false)
+    private String socialId;
+
+    @NotBlank
+    @Size(min=10,max = 10)
+    private String phoneNumber;
 
     @Email
     @NotBlank
+    @Column(unique = true)
     private String email;
 
     @NotBlank
-    @Range(min = 6,max = 12)
+    @Size(min = 6,max = 12)
     private String password;
 
-    @NotBlank
+    @NotNull
     @Range(min = 0,max = 7)
     private Integer year;
 

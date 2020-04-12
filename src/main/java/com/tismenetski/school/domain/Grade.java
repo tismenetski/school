@@ -10,7 +10,6 @@ import javax.persistence.Id;
 @Entity
 public class Grade {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
